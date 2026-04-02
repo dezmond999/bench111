@@ -1,0 +1,7 @@
+{
+  "name": "vkontakte",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
