@@ -29,12 +29,12 @@ export class HomePage {
       id: 1,
       title: "Книга 1",
       author: "Пушкин А.С.",
-      description: "Описание книги 1"
+      description: "Описание книги приколлллл"
     },
     {
       id: 2,
       title: "Книга 2",
-      author: "Достоевский Ф.М.",
+      author: "Достоевский Л.Н.",
       description: "Описание книги 2"
     }
   ];
