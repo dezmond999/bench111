@@ -12,14 +12,44 @@
       <ion-label>{{ item }}</ion-label>
     </ion-item>
   </ion-list>
+  <ion-card>
+    <ion-card-header>
+    <ion-card-title>Форма для добавления книги</ion-card-title>
+    </ion-card-header>
 
-  <ion-button (click)="btnClick()">Default</ion-button> 
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <ion-input label="Название книги" [(ngModel)] = "newBook.title"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input label="Автор книги" [(ngModel)] = "newBook.author"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input label="Описание книги" [(ngModel)] = "newBook.description"></ion-input>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+    <ion-button (click)="btnClick()">Добавить книгу</ion-button>
+  </ion-card>
+
 
   <ion-grid>
+    <ion-row class="grid-header">
+      <ion-col>Название </ion-col>
+      <ion-col>Автор</ion-col>
+      <ion-col>Описание</ion-col>
+      <ion-col>Действия</ion-col>
+    </ion-row>
     <ion-row *ngFor="let item1 of books">
-      <ion-col>{{ item1.title }}</ion-col>
-      <ion-col>{{ item1.author }}</ion-col>
-      <ion-col>{{ item1.description }}</ion-col>
+      <ion-col>{{item1.title}}</ion-col>
+      <ion-col>{{item1.author}}</ion-col>
+      <ion-col>{{item1.description}}</ion-col>
+      <ion-col>
+        <ion-button (click)="deleteBook(item1.id)" color="danger">
+          <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+        </ion-button>
+      </ion-col>
     </ion-row>
   </ion-grid>
 

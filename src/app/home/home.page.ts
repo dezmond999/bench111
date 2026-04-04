@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
+import { v4 as uuidv4 } from 'uuid';
 
 interface Book {
-  id: number;
+  id: number | null | string;
   title: string;
   author: string;
   description: string;
@@ -18,27 +19,49 @@ export class HomePage {
   constructor() {}
   myName: string = "VK"
   todo: string[] = [
-    "Купить молоко",
-    "Пойти в магазин",
-    "Сделать домашку",
-    "Пойти на тренировку",
-    "Пойти спать"
+    "Ввести логин",
+    "Ввести пароль",
+    "Подтвердить вход",
+    "Зайти на страницу"
   ]
+  newBook: Book = {
+    id: null,
+    title: "",
+    author: "",
+    description: "",
+  }
   books: Book[] = [
     {
       id: 1,
-      title: "Книга 1",
-      author: "Пушкин А.С.",
-      description: "Описание книги приколлллл"
+      title: "Лирика",
+      author: "Тютчев",
+      description: "Книга 1"
     },
     {
       id: 2,
-      title: "Книга 2",
+      title: "Преступление и наказание",
       author: "Достоевский Л.Н.",
-      description: "Описание книги 2"
+      description: "Книга 2"
     }
   ];
   btnClick() {
-    this.myName = this.myName + "!";
+    this.myName = this.myName + " hello";
+    this.books.push({
+      id: uuidv4(),
+      title: this.newBook.title,
+      author: this.newBook.author,
+      description: this.newBook.description
+    });
+    this.newBook = {
+      id: null,
+      title: "",
+      author: "",
+      description: ""
+    };
+  
+  };
+  deleteBook(id: number | null | string) {
+    this.books = this.books.filter(book => book.id !== id);
   }
+
 }
